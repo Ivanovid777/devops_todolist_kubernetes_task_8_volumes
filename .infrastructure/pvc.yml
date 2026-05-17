@@ -2,7 +2,6 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: pvc
-  namespace: todoapp
 spec:
   volumeName: pv-data
   storageClassName: standard
