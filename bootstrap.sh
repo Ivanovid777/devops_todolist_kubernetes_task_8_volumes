@@ -1,15 +1,15 @@
 #!/bin/bash
 kind create cluster --config cluster.yml &&
-cd .infrastructure/
-kubectl apply -f namespace.yml &&
 
-kubectl apply -f nodeport.yml -n todoapp &&
+kubectl apply -f .infrastructure/namespace.yml &&
 
-kubectl apply -f pv.yml &&
-kubectl apply -f pvc.yml &&
+kubectl apply -f .infrastructure/nodeport.yml -n todoapp &&
 
-kubectl apply -f configMap.yml -n todoapp &&
-kubectl apply -f secret.yml -n todoapp &&
+kubectl apply -f .infrastructure/pv.yml &&
+kubectl apply -f .infrastructure/pvc.yml -n todoapp &&
 
-kubectl apply -f deployment.yml -n todoapp &&
-kubectl apply -f hpa.yml -n todoapp
+kubectl apply -f .infrastructure/configMap.yml -n todoapp &&
+kubectl apply -f .infrastructure/secret.yml -n todoapp &&
+
+kubectl apply -f .infrastructure/deployment.yml -n todoapp &&
+kubectl apply -f .infrastructure/hpa.yml -n todoapp
